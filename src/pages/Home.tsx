@@ -35,8 +35,7 @@ export default function Home() {
       const emailExists = users.some(
         (u: User) => u.email.toLowerCase() === data.email.toLowerCase(),
       );
-
-      const mobileExists = users.some((u: User) => u.mobile === data.mobile);
+      const mobileExists = users.some((u: User) => u.phone === data.phone);
 
       if (mobileExists) {
         alert("Mobile number already registered");

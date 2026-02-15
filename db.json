@@ -1,25 +1,18 @@
 {
   "users": [
     {
-      "id": "fb1d",
+      "id": "356e",
       "firstName": "Satish",
       "lastName": "Jatiwal",
       "phone": "7303450220",
       "email": "satish.s.jatiwal@gmail.com"
     },
     {
-      "id": "8846",
-      "firstName": "dawda",
-      "lastName": "dawda",
-      "phone": "7303450220",
-      "email": "awd@gmail.com"
-    },
-    {
-      "id": "277d",
+      "id": "2ba6",
       "firstName": "Satish",
-      "lastName": "Jatiwal",
-      "phone": "7303450220",
-      "email": "satish.s.jatiwal@gmail.com"
+      "lastName": "Jatiwal1",
+      "phone": "7303450221",
+      "email": "satish.s.jatiwal1@gmail.com"
     }
   ]
 }
