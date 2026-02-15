@@ -12,8 +12,8 @@ export default function UserForm({ onSubmit, defaultValues }: any) {
   } = useForm({
     defaultValues,
   });
-  
-   useEffect(() => {
+
+  useEffect(() => {
     if (defaultValues) {
       reset(defaultValues);
     }
@@ -26,61 +26,63 @@ export default function UserForm({ onSubmit, defaultValues }: any) {
     <form onSubmit={handleSubmit(handleFormSubmit)}>
       <Stack spacing={2}>
         {userFields.map((field) => (
-          <TextField
-            key={field.name}
-            label={field.label}
-            type={field.type || "text"}
-            slotProps={{
-              htmlInput: {
-                maxLength: field.maxLength,
-                inputMode: field.type === "tel" ? "numeric" : undefined,
-                onInput:
+          <>
+            <div>{field.label}</div>
+            <TextField
+              key={field.name}
+              type={field.type || "text"}
+              slotProps={{
+                htmlInput: {
+                  maxLength: field.maxLength,
+                  inputMode: field.type === "tel" ? "numeric" : undefined,
+                  onInput:
+                    field.type === "tel"
+                      ? (e: any) => {
+                          e.currentTarget.value = e.currentTarget.value.replace(
+                            /\D/g,
+                            "",
+                          );
+                        }
+                      : undefined,
+                },
+              }}
+              {...register(field.name, {
+                required: field.required && `${field.label} is required`,
+
+                minLength:
                   field.type === "tel"
-                    ? (e:any) => {
-                        e.currentTarget.value = e.currentTarget.value.replace(
-                          /\D/g,
-                          "",
-                        );
+                    ? {
+                        value: 10,
+                        message: "Phone number must be 10 digits",
                       }
                     : undefined,
-              },
-            }}
-            {...register(field.name, {
-              required: field.required && `${field.label} is required`,
 
-              minLength:
-                field.type === "tel"
+                maxLength: field.maxLength
                   ? {
-                      value: 10,
-                      message: "Phone number must be 10 digits",
+                      value: field.maxLength,
+                      message: `Max ${field.maxLength} characters`,
                     }
                   : undefined,
 
-              maxLength: field.maxLength
-                ? {
-                    value: field.maxLength,
-                    message: `Max ${field.maxLength} characters`,
-                  }
-                : undefined,
-
-              pattern:
-                field.type === "email"
-                  ? {
-                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: "Enter a valid email address",
-                    }
-                  : field.type === "tel"
+                pattern:
+                  field.type === "email"
                     ? {
-                        value: /^[0-9]+$/,
-                        message: "Only numbers allowed",
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "Enter a valid email address",
                       }
-                    : undefined,
-            })}
-            error={!!errors[field.name]}
-            helperText={
-              errors[field.name] && (errors[field.name]?.message as string)
-            }
-          />
+                    : field.type === "tel"
+                      ? {
+                          value: /^[0-9]+$/,
+                          message: "Only numbers allowed",
+                        }
+                      : undefined,
+              })}
+              error={!!errors[field.name]}
+              helperText={
+                errors[field.name] && (errors[field.name]?.message as string)
+              }
+            />
+          </>
         ))}
 
         <Button type="submit" variant="contained">
