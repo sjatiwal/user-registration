@@ -1,6 +1,7 @@
 import { TextField, Button, Stack } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { userFields } from "../config/userFields";
+import { useEffect } from "react";
 
 export default function UserForm({ onSubmit, defaultValues }: any) {
   const {
@@ -11,7 +12,12 @@ export default function UserForm({ onSubmit, defaultValues }: any) {
   } = useForm({
     defaultValues,
   });
-
+  
+   useEffect(() => {
+    if (defaultValues) {
+      reset(defaultValues);
+    }
+  }, [defaultValues, reset]);
   const handleFormSubmit = (data: any) => {
     onSubmit(data);
     reset();
