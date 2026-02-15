@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "fb1d",
+      "firstName": "Satish",
+      "lastName": "Jatiwal",
+      "phone": "7303450220",
+      "email": "satish.s.jatiwal@gmail.com"
+    },
+    {
+      "id": "8846",
+      "firstName": "dawda",
+      "lastName": "dawda",
+      "phone": "7303450220",
+      "email": "awd@gmail.com"
+    },
+    {
+      "id": "277d",
+      "firstName": "Satish",
+      "lastName": "Jatiwal",
+      "phone": "7303450220",
+      "email": "satish.s.jatiwal@gmail.com"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+
+.mainContaniner{
+    width: 700px;
+}
+.listContainer{
+    width:100%;
+    margin-top: 50px;
+}
+
+.listRow{
+    border-width: 2px;
+    width:100%;
+    flex-direction: 'row';
+    display: flex;
+    align-items: center;
+}
+
+.nameContainer{
+    width:60%;
+    border-width: 2px;
+}
+
+.btn{
+width:40%;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+}
+
+.noUser{
+text-align:center;
+}
+
+@media (max-width: 768px) {
+  .mainContaniner {
+    width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  .mainContaniner {
+    width: 300px;
+  }
+}
