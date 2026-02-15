@@ -30,7 +30,7 @@ npm install
 npm run dev
 
 The app will run at:
-http://localhost:5173
+https://user-registration-azure.vercel.app/
 
 
 3. Start the mock backend (JSON Server)
@@ -46,7 +46,7 @@ Then run:
 npm run server
 
 The backend will run at:
-https://user-registration-production-cd92.up.railway.app
+http://localhost:3001
 
 
 FEATURES
